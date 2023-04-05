@@ -9,7 +9,8 @@ LABEL "com.github.actions.color"="purple"
 
 WORKDIR /tmp
 
-RUN wget https://github.com/cvedb/cvedb-cli/releases/download/v1.1.2/cvedb-cli-1.1.2-linux-amd64.zip
+RUN wget https://github.com/CVEDB/cvedb-cli/releases/download/v1.1.2/cvedb-cli-1.1.2-linux-amd64.zip
+
 
 # Unzip
 RUN unzip cvedb-cli-1.1.2-linux-amd64.zip
