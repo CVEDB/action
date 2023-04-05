@@ -10,11 +10,11 @@ LABEL "com.github.actions.color"="purple"
 WORKDIR /tmp
 
 RUN wget 
-https://github.com/trickest/trickest-cli/releases/download/v1.1.7/trickest-cli-1.1.7-linux-386.zip
+https://github.com/trickest/trickest-cli/releases/download/v1.1.7/trickest-cli-1.1.7-linux-amd.zip
 # Unzip
-RUN unzip trickest-cli-1.1.7-linux-386.zip
+RUN unzip trickest-cli-1.1.7-linux-amd.zip
 
-RUN mv trickest-cli-1.1.7-linux-386.zip cvedb
+RUN mv trickest-cli-1.1.7-linux-amd cvedb
 
 # Make binary executable
 RUN chmod +x cvedb
