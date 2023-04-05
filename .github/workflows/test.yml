@@ -1,4 +1,4 @@
-name: cvedb Client
+name: CVEDB Client
 
 on:
   push:
@@ -11,8 +11,8 @@ jobs:
     - name: Check Out
       uses: actions/checkout@main
 
-    - name: cvedb Execute
-      id: trickest
+    - name: CVEDB Execute
+      id: cvedb
       uses: ./
       env:
         CVEDB_TOKEN: "${{ secrets.CVEDB_TOKEN }}"
