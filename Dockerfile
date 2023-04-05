@@ -15,7 +15,7 @@ RUN wget https://github.com/CVEDB/cvedb-cli/releases/download/v1.1.2/cvedb-cli-1
 # Unzip
 RUN unzip cvedb-cli-1.1.2-linux-amd64.zip
 
-RUN mv cvedb-cli-1.1.2-linux-amd64 trickest
+RUN mv cvedb-cli-1.1.2-linux-amd64 cvedb
 
 # Make binary executable
 RUN chmod +x cvedb
