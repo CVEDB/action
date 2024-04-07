@@ -119,7 +119,7 @@ function max_machines() {
 # Check if name for the workflow on platform is supplied
 function check_workflow() {
     if [[ ! $workflow ]]; then
-        echo "Workflow flag missing. You can check out the https://cvedb.github.io/dashboard/store?type=workflows to execute workflow directly from the Store"
+        echo "Workflow flag missing. You can check out the https://cvedb.khulnasoft.com/dashboard/store?type=workflows to execute workflow directly from the Store"
         exit 1
     else
         WORKFLOW_CMD="--workflow \"$workflow\""
