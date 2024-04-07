@@ -1,6 +1,7 @@
 name: CVEDB Client
 
 on:
+  workflow_dispatch:
   push:
 
 jobs:         
