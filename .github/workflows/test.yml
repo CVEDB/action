@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:         
-  trickest-execute-workflow:
+  cvedb-execute-workflow:
     runs-on: ubuntu-latest
     steps:
 
