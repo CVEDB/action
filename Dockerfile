@@ -1,33 +1,20 @@
+FROM --platform=linux/amd64 golang:1.19-alpine as build
+
+RUN go install github.com/cvedb/cvedb-cli@latest
+
+
 FROM alpine:3.16.0
 
-RUN apk add bash unzip
+RUN apk add bash curl jq
 
-LABEL "com.github.actions.name"="Trickest Execute"
-LABEL "com.github.actions.description"="Execute Workflows on Trickest Platform"
+LABEL "com.github.actions.name"="CVEDB Execute"
+LABEL "com.github.actions.description"="Execute Workflows on CVEDB Platform"
 LABEL "com.github.actions.icon"="upload-cloud"
 LABEL "com.github.actions.color"="purple"
 
-WORKDIR /tmp
-
-RUN wget https://github.com/trickest/trickest-cli/releases/download/v1.1.2/trickest-cli-1.1.2-linux-amd64.zip
-
-# Unzip
-RUN unzip trickest-cli-1.1.2-linux-amd64.zip
-
-RUN mv trickest-cli-1.1.2-linux-amd64 cvedb
-
-# Make binary executable
-RUN chmod +x cvedb
-
-# Move binary to path
-RUN mv cvedb /usr/bin/cvedb
-
-WORKDIR /
-
-COPY entrypoint.sh .
+COPY --from=build /go/bin/cvedb-cli /usr/bin/cvedb
 
 ADD entrypoint.sh /entrypoint.sh
-
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
